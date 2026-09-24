@@ -129,7 +129,7 @@
                     .update({ avatar_url: dataUrl })
                     .eq('id', window.supabaseUserId)
                     .then(({error}) => {
-                      if(error) console.error("Error saving avatar:", error);
+                      if(error) console.error('Error saving avatar:', error);
                     });
                 }
                 // =====================
