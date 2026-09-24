@@ -457,6 +457,19 @@
     }
 
     function logWaterIntake() {
+    // === SUPABASE SYNC ===
+    if (window.supabaseUserId) {
+      window.supabase.from('hydration_logs').insert([
+        { user_id: window.supabaseUserId, amount_ml: currentPortionVolume }
+      ]).then(({error}) => {
+        if(error) console.error("Error saving hydration:", error);
+      });
+      
+      // Update XP in profile
+      window.supabase.rpc('increment_xp', { amount: xpToGain }).catch(e => {}); // Ignore if rpc doesn't exist yet
+    }
+    // =====================
+
       if (currentGlasses < maxGlasses) {
         currentGlasses++;
         

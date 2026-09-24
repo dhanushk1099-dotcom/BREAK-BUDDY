@@ -7,4 +7,18 @@ export const supabase = createClient(supabaseUrl, supabaseKey)
 
 // Make it available globally so other inline scripts can use it if needed
 window.supabase = supabase;
-console.log("Supabase connected successfully!");
+
+// Get current user session globally
+supabase.auth.getSession().then(({ data: { session } }) => {
+  if (session && session.user) {
+    window.supabaseUserId = session.user.id;
+  }
+});
+
+supabase.auth.onAuthStateChange((event, session) => {
+  if (session && session.user) {
+    window.supabaseUserId = session.user.id;
+  } else {
+    window.supabaseUserId = null;
+  }
+});

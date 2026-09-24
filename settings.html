@@ -121,7 +121,19 @@
               
               document.getElementById('profileImage').src = dataUrl;
               try {
+                
                 localStorage.setItem('savedAvatar', dataUrl);
+                // === SUPABASE SYNC ===
+                if (window.supabaseUserId) {
+                  window.supabase.from('profiles')
+                    .update({ avatar_url: dataUrl })
+                    .eq('id', window.supabaseUserId)
+                    .then(({error}) => {
+                      if(error) console.error("Error saving avatar:", error);
+                    });
+                }
+                // =====================
+
               } catch (err) {
                 console.error('Storage full', err);
               }

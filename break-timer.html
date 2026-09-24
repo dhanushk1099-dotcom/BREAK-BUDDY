@@ -419,6 +419,16 @@
   }
 
   function openModal() {
+  // === SUPABASE SYNC ===
+  if (window.supabaseUserId) {
+    window.supabase.from('break_sessions').insert([
+      { user_id: window.supabaseUserId, duration_seconds: 50 * 60, break_type: 'Pomodoro' }
+    ]).then(({error}) => {
+      if(error) console.error("Error saving break:", error);
+    });
+  }
+  // =====================
+
     modal.classList.remove('hidden');
     setTimeout(() => {
       modalCard.classList.remove('scale-95');
