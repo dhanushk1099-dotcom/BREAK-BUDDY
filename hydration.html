@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-fixed":"#d8e2ff","on-tertiary-fixed-variant":"#5516be","background":"#faf8ff","on-primary-container":"#fefcff","tertiary":"#6b38d4","primary":"#0058be","error":"#ba1a1a","error-container":"#ffdad6","on-primary":"#ffffff","primary-container":"#2170e4","primary-fixed-dim":"#adc6ff","on-tertiary-fixed":"#23005c","on-tertiary":"#ffffff","tertiary-fixed":"#e9ddff","surface-tint":"#005ac2","surface-bright":"#faf8ff","surface-variant":"#dae2fd","surface-container":"#eaedff","secondary-fixed":"#6ffbbe","surface-container-high":"#e2e7ff","tertiary-fixed-dim":"#d0bcff","on-surface-variant":"#424754","surface-container-highest":"#dae2fd","outline-variant":"#c2c6d6","on-error":"#ffffff","on-primary-fixed-variant":"#004395","inverse-primary":"#adc6ff","outline":"#727785","on-secondary-fixed":"#002113","on-secondary-container":"#00714d","on-background":"#131b2e","on-secondary-fixed-variant":"#005236","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","on-surface":"#131b2e","surface-dim":"#d2d9f4","inverse-surface":"#283044","on-error-container":"#93000a","inverse-on-surface":"#eef0ff","surface-container-low":"#f2f3ff","secondary-container":"#6cf8bb","surface":"#faf8ff","tertiary-container":"#8455ef","on-primary-fixed":"#001a42","secondary":"#006c49","secondary-fixed-dim":"#4edea3","on-tertiary-container":"#fffbff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"margin-sm":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","space-md":"1rem","gutter-sm":"1rem","space-xl":"2.25rem","space-xs":"0.25rem",gutter:"1.5rem",margin:"2rem"},fontFamily:{"body-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"badge-counter":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"display-hero":["Plus Jakarta Sans"]},fontSize:{"body-sm":["13px",{lineHeight:"20px",fontWeight:"400"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-lg-mobile":["26px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"display-hero-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"800"}],"headline-sm":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"badge-counter":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],"body-md":["15px",{lineHeight:"24px",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"display-hero":["44px",{lineHeight:"52px",letterSpacing:"-0.03em",fontWeight:"800"}]}}}}</script>
+<style>
+  /* Prevent Caret Browsing cursor and accidental text selection to make the app feel native */
+  body { user-select: none; -webkit-user-select: none; }
+  input, textarea, [contenteditable] { user-select: text; -webkit-user-select: text; }
+</style>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm"><img alt="BreakBuddy Logo" class="h-8 w-auto object-contain" src="logo.svg"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">BreakBuddy</span><span class="font-badge-counter text-badge-counter uppercase tracking-wider text-on-surface-variant">Campus Wellness</span></div></div><nav class="px-space-md py-space-sm flex flex-col gap-space-xs" data-active-classes="bg-primary text-on-primary font-label-lg rounded-xl shadow-[0_2px_6px_-1px_rgba(0,88,190,0.3)]"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="dashboard.html"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="break-timer" href="break-timer.html"><span class="material-symbols-outlined text-[20px]">timer</span><span>Break Timer</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-colors bg-primary text-on-primary font-label-lg rounded-xl shadow-[0_2px_6px_-1px_rgba(0,88,190,0.3)]" data-path="hydration" href="hydration.html"><span class="material-symbols-outlined text-[20px]">water_drop</span><span>Hydration</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="stretch" href="stretch.html"><span class="material-symbols-outlined text-[20px]">accessibility_new</span><span>Stretch</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="challenges" href="challenges.html"><span class="material-symbols-outlined text-[20px]">flag</span><span>Challenges</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="achievements" href="achievements.html"><span class="material-symbols-outlined text-[20px]">emoji_events</span><span>Achievements</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="progress" href="progress.html"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span>Progress</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="settings.html"><span class="material-symbols-outlined text-[20px]">tune</span><span>Settings</span></a></nav></div><div class="p-space-md m-space-md rounded-xl bg-surface-container-low"><div class="flex items-center gap-space-sm mb-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="profile.jpg"/><div class="flex flex-col min-w-0 flex-1"><span class="font-label-lg text-label-lg text-on-surface font-bold truncate">Dhanush</span><span class="font-badge-counter text-badge-counter text-on-surface-variant truncate">Level 7 Wellness Student</span></div></div><div class="w-full flex flex-col gap-space-xs"><div class="flex items-center justify-between font-label-md text-label-md text-on-surface-variant"><span>Level XP</span><span class="font-bold text-tertiary">83%</span></div><div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden"><div class="h-full bg-tertiary-container rounded-full w-[83%]"></div></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><img alt="BreakBuddy Logo" class="h-8 w-auto object-contain md:hidden" src="logo.svg"/><div class="flex items-center gap-space-sm"><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md"><span class="material-symbols-outlined text-[16px]">local_fire_department</span><span class="font-bold">7 Day Streak</span></div><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md"><span class="material-symbols-outlined text-[16px]">military_tech</span><span class="font-bold">Lvl 7</span><span class="text-on-surface-variant text-[11px]">1,240 / 1,500 XP</span></div></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center">
+<button aria-label="Notifications" class="relative p-space-xs rounded-full text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button" onclick="toggleNotifications(event)">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+<span id="notifCount" class="absolute top-0 right-0 flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full bg-error text-on-error font-badge-counter text-badge-counter leading-none">3</span>
+</button>
+<div id="notificationDropdown" class="hidden absolute right-0 top-full mt-2 w-80 bg-surface-container-lowest rounded-2xl shadow-xl border border-surface-container-highest overflow-hidden z-50">
+  <div class="p-space-md border-b border-surface-container-highest flex items-center justify-between">
+    <span class="font-headline-sm font-bold">Notifications</span>
+    <button class="text-primary font-label-md hover:underline" onclick="markAllRead()">Mark all as read</button>
+  </div>
+  <div class="flex flex-col max-h-80 overflow-y-auto">
+    <div class="p-space-md border-b border-surface-container-highest hover:bg-surface-container-low transition-colors cursor-pointer bg-surface-container-lowest">
+      <div class="flex items-center justify-between mb-1">
+        <p class="font-label-lg font-bold flex items-center gap-1"><span class="material-symbols-outlined text-primary text-[18px]">self_improvement</span> Time for a break!</p>
+        <span class="w-2 h-2 rounded-full bg-primary"></span>
+      </div>
+      <p class="font-body-sm text-on-surface-variant">You've been studying for 50 minutes. Stretch your legs.</p>
+    </div>
+    <div class="p-space-md border-b border-surface-container-highest hover:bg-surface-container-low transition-colors cursor-pointer bg-surface-container-lowest">
+      <div class="flex items-center justify-between mb-1">
+        <p class="font-label-lg font-bold flex items-center gap-1"><span class="material-symbols-outlined text-secondary text-[18px]">water_drop</span> Hydration Reminder</p>
+        <span class="w-2 h-2 rounded-full bg-primary"></span>
+      </div>
+      <p class="font-body-sm text-on-surface-variant">Don't forget to log your water intake today.</p>
+    </div>
+    <div class="p-space-md hover:bg-surface-container-low transition-colors cursor-pointer bg-surface-container-lowest">
+      <div class="flex items-center justify-between mb-1">
+        <p class="font-label-lg font-bold flex items-center gap-1"><span class="material-symbols-outlined text-tertiary text-[18px]">emoji_events</span> New Badge Unlocked</p>
+        <span class="w-2 h-2 rounded-full bg-primary"></span>
+      </div>
+      <p class="font-body-sm text-on-surface-variant">You earned the "7-Day Streak" badge!</p>
+    </div>
+  </div>
+</div>
+</div>
+<div class="relative flex items-center">
+<button id="profileBtn" class="flex items-center gap-space-xs p-space-xs rounded-full hover:bg-surface-container transition-colors" type="button" onclick="toggleProfile(event)">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="profile.jpg"/>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span>
+</button>
+<div id="profileDropdown" class="hidden absolute right-0 top-full mt-2 w-56 bg-surface-container-lowest rounded-2xl shadow-xl border border-surface-container-highest overflow-hidden z-50">
+  <div class="p-space-md border-b border-surface-container-highest">
+    <p class="font-headline-sm font-bold truncate">Dhanush</p>
+    <p class="font-body-sm text-on-surface-variant truncate">Level 7 Wellness Student</p>
+  </div>
+  <div class="flex flex-col py-2">
+    <a href="settings.html" class="flex items-center gap-3 px-space-md py-2 hover:bg-surface-container-low transition-colors text-on-surface font-label-lg">
+      <span class="material-symbols-outlined text-[20px]">manage_accounts</span>
+      My Profile
+    </a>
+    <a href="settings.html" class="flex items-center gap-3 px-space-md py-2 hover:bg-surface-container-low transition-colors text-on-surface font-label-lg">
+      <span class="material-symbols-outlined text-[20px]">tune</span>
+      Preferences
+    </a>
+    <div class="h-px bg-surface-container-highest my-2"></div>
+    <a href="#" class="flex items-center gap-3 px-space-md py-2 hover:bg-surface-container-low transition-colors text-error font-label-lg">
+      <span class="material-symbols-outlined text-[20px]">logout</span>
+      Log Out
+    </a>
+  </div>
+</div>
+</div>
+</div></header><main class="w-full pt-16 bg-background min-h-screen"><div class="flex flex-col w-full">
+<div class="relative w-full overflow-hidden px-margin py-space-xl flex flex-col gap-space-xl max-w-7xl mx-auto">
+<!-- Ambient Fluid Glowing Orbs -->
+<div class="absolute -top-32 -left-20 w-96 h-96 rounded-full bg-primary-fixed blur-3xl opacity-40 pointer-events-none"></div>
+<div class="absolute top-1/3 -right-24 w-80 h-80 rounded-full bg-secondary-fixed blur-3xl opacity-30 pointer-events-none"></div>
+<!-- Screen Header & Dynamic Toast Banner -->
+<div class="relative z-10 flex flex-col gap-space-md">
+<!-- Toast Alert Banner -->
+<div class="flex items-center justify-between px-space-lg py-space-sm rounded-full bg-secondary-container text-on-secondary-container shadow-sm transition-all duration-500 ease-out transform" id="toast-banner">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-lg text-label-lg">Gulp! +10 XP earned 💧 Streak updated!</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-badge-counter text-badge-counter uppercase tracking-widest bg-surface-container-lowest/70 px-space-xs py-0.5 rounded-full text-secondary">Boost Active</span>
+<button class="material-symbols-outlined text-[18px] text-on-secondary-container hover:opacity-75 transition-opacity" onclick="document.getElementById('toast-banner').classList.add('opacity-0','-translate-y-2','pointer-events-none')">close</button>
+</div>
+</div>
+<!-- Main Headline Block -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="inline-flex items-center gap-space-xs text-primary font-label-md text-label-md uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">water_drop</span>
+<span>Focus &amp; Mental Energy</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-on-background tracking-tight">Stay Hydrated 💧</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Fuel your brain for productive study sessions. Simple habit tracking, non-medical.</p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto bg-surface-container-lowest p-space-xs rounded-full shadow-sm">
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Study Hydration Mode</span>
+</div>
+<div class="px-space-md py-space-xs rounded-full text-on-surface-variant font-label-md text-label-md">
+<span>Synced w/ Library Timer</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Hero Tracker Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch">
+<!-- Left Core Status Metric Panel (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between gap-space-lg relative overflow-hidden">
+<div class="absolute -right-16 -bottom-16 w-56 h-56 rounded-full bg-primary-fixed-dim/20 pointer-events-none"></div>
+<div class="flex flex-col gap-space-sm relative z-10">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Today's Intake Status</span>
+<span class="px-space-sm py-space-xs rounded-full bg-primary-fixed text-primary font-badge-counter text-badge-counter font-bold">62% Completed</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-display-hero text-display-hero text-primary tracking-tight" id="intake-count-text">5 / 8</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant">glasses</span>
+</div>
+<!-- Custom Liquid Wave Bar -->
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<div class="h-4 w-full bg-surface-container-highest rounded-full overflow-hidden relative">
+<div class="h-full bg-gradient-to-r from-primary via-primary-container to-secondary rounded-full transition-all duration-700 ease-out" id="liquid-progress" style="width: 62.5%;"></div>
+</div>
+<div class="flex justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>0 ml</span>
+<span class="font-bold text-on-surface">1,250 ml logged</span>
+<span>2,000 ml target</span>
+</div>
+</div>
+</div>
+<!-- Target Summary Pill Strip -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm relative z-10">
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">flag</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-badge-counter text-badge-counter text-on-surface-variant uppercase">Goal</span>
+<span class="font-label-lg text-label-lg text-on-surface truncate">8 Glasses (2.0L)</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-badge-counter text-badge-counter text-on-surface-variant uppercase">Next Ping</span>
+<span class="font-label-lg text-label-lg text-on-surface truncate">6:45 PM</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-badge-counter text-badge-counter text-on-surface-variant uppercase">Streak Bonus</span>
+<span class="font-label-lg text-label-lg text-on-surface truncate">+50 XP Ready</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Interactive Quick Log Controller (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Instant Logger</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Record Hydration</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tap to register your latest drink and earn XP rewards for brain power.</p>
+</div>
+<!-- Portion Selector Tabs -->
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Select Serving Size</span>
+<div class="grid grid-cols-2 gap-space-sm" id="portion-selector">
+<button class="portion-btn flex flex-col items-center justify-center p-space-sm rounded-xl bg-primary-fixed text-on-primary-fixed shadow-sm transition-all text-center" onclick="selectPortion(this, 'Standard Glass (250ml)', 250, 10)" type="button">
+<span class="material-symbols-outlined text-[24px]">local_cafe</span>
+<span class="font-label-lg text-label-lg font-bold mt-space-xs">Standard Glass</span>
+<span class="font-badge-counter text-badge-counter opacity-80">250 ml • +10 XP</span>
+</button>
+<button class="portion-btn flex flex-col items-center justify-center p-space-sm rounded-xl bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all text-center" onclick="selectPortion(this, 'Water Bottle (500ml)', 500, 20)" type="button">
+<span class="material-symbols-outlined text-[24px]">water_bottle</span>
+<span class="font-label-lg text-label-lg font-bold mt-space-xs">Water Bottle</span>
+<span class="font-badge-counter text-badge-counter opacity-80">500 ml • +20 XP</span>
+</button>
+</div>
+</div>
+<!-- Main Add Glass Action Button -->
+<div class="flex flex-col gap-space-xs">
+<button class="w-full py-space-md px-space-lg rounded-full bg-primary text-on-primary font-label-lg text-label-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] transition-all flex items-center justify-center gap-space-sm relative overflow-hidden group" id="add-glass-btn" onclick="logWaterIntake()">
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none"></div>
+<span class="material-symbols-outlined text-[22px]">add</span>
+<span class="tracking-wide font-bold" id="log-button-text">+ Add Glass (+10 XP)</span>
+<span class="material-symbols-outlined text-[18px] opacity-75">water_drop</span>
+</button>
+<span class="text-center font-badge-counter text-badge-counter text-on-surface-variant">Syncs automatically to your daily wellness goal</span>
+</div>
+</div>
+</div>
+<!-- 8 Water Drop Visual Journey Strip -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Daily Drop Milestones</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Each droplet corresponds to roughly 250ml of hydration throughout your day.</p>
+</div>
+<div class="flex items-center gap-space-xs text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>5 of 8 completed today</span>
+</div>
+</div>
+<!-- 8 Droplet Matrix -->
+<div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-space-sm pt-space-xs" id="droplets-container">
+<!-- Drop 1 (Active) -->
+<div class="flex flex-col items-center p-space-md rounded-xl bg-surface-container-low transition-all">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center shadow-sm relative mb-space-xs">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[11px]">check</span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Glass 1</span>
+<span class="font-badge-counter text-badge-counter text-on-surface-variant mt-0.5">9:00 AM</span>
+</div>
+<!-- Drop 2 (Active) -->
+<div class="flex flex-col items-center p-space-md rounded-xl bg-surface-container-low transition-all">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center shadow-sm relative mb-space-xs">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[11px]">check</span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Glass 2</span>
+<span class="font-badge-counter text-badge-counter text-on-surface-variant mt-0.5">11:30 AM</span>
+</div>
+<!-- Drop 3 (Active) -->
+<div class="flex flex-col items-center p-space-md rounded-xl bg-surface-container-low transition-all">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center shadow-sm relative mb-space-xs">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[11px]">check</span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Glass 3</span>
+<span class="font-badge-counter text-badge-counter text-on-surface-variant mt-0.5">1:15 PM</span>
+</div>
+<!-- Drop 4 (Active) -->
+<div class="flex flex-col items-center p-space-md rounded-xl bg-surface-container-low transition-all">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center shadow-sm relative mb-space-xs">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[11px]">check</span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Glass 4</span>
+<span class="font-badge-counter text-badge-counter text-on-surface-variant mt-0.5">3:30 PM</span>
+</div>
+<!-- Drop 5 (Active) -->
+<div class="flex flex-col items-center p-space-md rounded-xl bg-surface-container-low transition-all">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center shadow-sm relative mb-space-xs">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[11px]">check</span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Glass 5</span>
+<span class="font-badge-counter text-badge-counter text-on-surface-variant mt-0.5">5:10 PM</span>
+</div>
+<!-- Drop 6 (Pending) -->
+<div class="flex flex-col items-center p-space-md rounded-xl bg-surface-container transition-all hover:bg-surface-container-high cursor-pointer" id="drop-slot-6" onclick="logWaterIntake()">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm mb-space-xs">
+<span class="material-symbols-outlined text-[24px]">water_drop</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold">Glass 6</span>
+<span class="font-badge-counter text-badge-counter text-primary font-bold mt-0.5">Next Up</span>
+</div>
+<!-- Drop 7 (Pending) -->
+<div class="flex flex-col items-center p-space-md rounded-xl bg-surface-container transition-all hover:bg-surface-container-high cursor-pointer" id="drop-slot-7" onclick="logWaterIntake()">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest text-on-surface-variant/40 flex items-center justify-center shadow-sm mb-space-xs">
+<span class="material-symbols-outlined text-[24px]">water_drop</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-bold">Glass 7</span>
+<span class="font-badge-counter text-badge-counter text-on-surface-variant/60 mt-0.5">Pending</span>
+</div>
+<!-- Drop 8 (Pending) -->
+<div class="flex flex-col items-center p-space-md rounded-xl bg-surface-container transition-all hover:bg-surface-container-high cursor-pointer" id="drop-slot-8" onclick="logWaterIntake()">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest text-on-surface-variant/40 flex items-center justify-center shadow-sm mb-space-xs">
+<span class="material-symbols-outlined text-[24px]">water_drop</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-bold">Glass 8</span>
+<span class="font-badge-counter text-badge-counter text-on-surface-variant/60 mt-0.5">Pending</span>
+</div>
+</div>
+</div>
+<!-- Secondary Insights, Timetable & Gamification Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Gamified Challenge & Companion Card (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Badge Progress Callout -->
+<div class="relative overflow-hidden bg-gradient-to-br from-tertiary via-tertiary-container to-primary text-on-tertiary p-space-lg rounded-xl shadow-md">
+<div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-white/10 blur-xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-on-tertiary shrink-0">
+<span class="material-symbols-outlined text-[32px]">emoji_events</span>
+</div>
+<div class="flex flex-col">
+<div class="inline-flex items-center gap-space-xs">
+<span class="font-badge-counter text-badge-counter uppercase tracking-wider bg-white/20 px-space-xs py-0.5 rounded-full">Daily Quest</span>
+<span class="font-badge-counter text-badge-counter font-bold text-secondary-container">+60 Bonus XP</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mt-space-xs">Hydration Hero Challenge</h3>
+<p class="font-body-sm text-body-sm opacity-90 mt-0.5">Only 3 more glasses to unlock today's master hydrator badge!</p>
+</div>
+</div>
+<div class="w-full sm:w-auto shrink-0">
+<button class="w-full sm:w-auto px-space-lg py-space-sm rounded-full bg-surface-container-lowest text-tertiary font-label-lg text-label-lg shadow-sm hover:bg-surface-container-high transition-colors" onclick="logWaterIntake()">
+                Drink Now
+              </button>
+</div>
+</div>
+<!-- Micro bar inside gamified block -->
+<div class="mt-space-md pt-space-sm flex flex-col gap-space-xs">
+<div class="w-full h-2 bg-black/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full" style="width: 62.5%;"></div>
+</div>
+<div class="flex justify-between font-badge-counter text-badge-counter opacity-80">
+<span>Progress: 5/8 Glasses</span>
+<span>Reward unlocked upon 8th glass</span>
+</div>
+</div>
+</div>
+<!-- Student Ergonomics & Hydration Tip Block with Rich Media -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col sm:flex-row gap-space-lg items-center">
+<div class="w-full sm:w-44 h-36 rounded-xl overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A clean, modern student study desk with a sleek translucent reusable water bottle next to open textbooks and a laptop in warm morning daylight, featuring crisp blue and lavender aesthetic accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-iZEBEbYCMVJg2ld25w_VPfO9ZirRkd6HyuMibvl0SCdiXGU-P3mqiQzbgpqgZV2P7q9i8balMa6kgymQqKdh_dAERlFbsvV99Yp_gskcfc_0n7wGLQhzUj728xTGI9WrARX0I9tuusep-WtZWAkoqVrf2wolMkM7B8-6fVa6KBxu3w4WAIXViqNzvT_Y_UubialyZXIu6MVrO034M7NN6mt6MLtnvJEd_4d6KPn1R--4RDvs2tPIzw"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">psychology</span>
+<span>Study Tip</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">The 20-Minute Focus Sip</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Even mild dehydration reduces memory retention by up to 15%. Take small sips during Pomodoro intervals rather than gulping once an hour.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Hydration Timeline & Reminders (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Hydration Timeline</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Today's recorded entries</span>
+</div>
+<button class="p-space-xs text-on-surface-variant hover:text-on-surface rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">history</span>
+</button>
+</div>
+<!-- Log List -->
+<div class="flex flex-col gap-space-sm" id="timeline-list">
+<!-- Event Item -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">water_drop</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Glass 5 (250ml)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">5:10 PM • Library 2nd Floor</span>
+</div>
+</div>
+<span class="font-badge-counter text-badge-counter font-bold text-tertiary bg-tertiary-fixed px-space-xs py-0.5 rounded-full">+10 XP</span>
+</div>
+<!-- Event Item -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">water_drop</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Glass 4 (250ml)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">3:30 PM • Post-Lecture Break</span>
+</div>
+</div>
+<span class="font-badge-counter text-badge-counter font-bold text-tertiary bg-tertiary-fixed px-space-xs py-0.5 rounded-full">+10 XP</span>
+</div>
+<!-- Event Item -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">water_drop</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Glass 3 (250ml)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1:15 PM • Campus Dining Hall</span>
+</div>
+</div>
+<span class="font-badge-counter text-badge-counter font-bold text-tertiary bg-tertiary-fixed px-space-xs py-0.5 rounded-full">+10 XP</span>
+</div>
+<!-- Event Item -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">water_drop</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Glass 2 (250ml)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">11:30 AM • Dorm Room Desk</span>
+</div>
+</div>
+<span class="font-badge-counter text-badge-counter font-bold text-tertiary bg-tertiary-fixed px-space-xs py-0.5 rounded-full">+10 XP</span>
+</div>
+</div>
+<!-- Smart Reminder Settings Drawer Bar -->
+<div class="p-space-md rounded-xl bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">notifications_active</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Smart Nudge Enabled</span>
+<span class="font-badge-counter text-badge-counter text-on-surface-variant">Next gentle chime in 45m</span>
+</div>
+</div>
+<button class="px-space-sm py-1 rounded-full bg-surface-container-lowest text-primary font-label-md text-label-md shadow-xs hover:bg-surface-container-high transition-colors">
+            Adjust
+          </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+    let currentGlasses = 5;
+    const maxGlasses = 8;
+    let selectedVolume = 250;
+    let selectedXp = 10;
+
+    function selectPortion(button, title, vol, xp) {
+      document.querySelectorAll('.portion-btn').forEach(btn => {
+        btn.classList.remove('bg-primary-fixed', 'text-on-primary-fixed');
+        btn.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+      });
+      button.classList.add('bg-primary-fixed', 'text-on-primary-fixed');
+      button.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+      
+      selectedVolume = vol;
+      selectedXp = xp;
+
+      const logBtnText = document.getElementById('log-button-text');
+      if (logBtnText) {
+        logBtnText.textContent = `+ Add ${vol === 500 ? 'Bottle' : 'Glass'} (+${xp} XP)`;
+      }
+    }
+
+    function logWaterIntake() {
+      if (currentGlasses < maxGlasses) {
+        currentGlasses++;
+        
+        // Update Headline Count
+        const countDisplay = document.getElementById('intake-count-text');
+        if (countDisplay) {
+          countDisplay.textContent = `${currentGlasses} / ${maxGlasses}`;
+        }
+
+        // Update progress bar
+        const pct = (currentGlasses / maxGlasses) * 100;
+        const progressBar = document.getElementById('liquid-progress');
+        if (progressBar) {
+          progressBar.style.width = `${pct}%`;
+        }
+
+        // Update Drop Indicators
+        const targetSlot = document.getElementById(`drop-slot-${currentGlasses}`);
+        if (targetSlot) {
+          const now = new Date();
+          const timeStr = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+          targetSlot.className = "flex flex-col items-center p-space-md rounded-xl bg-surface-container-low transition-all animate-bounce";
+          targetSlot.innerHTML = `
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center shadow-sm relative mb-space-xs">
+              <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+              <span class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full flex items-center justify-center text-on-secondary">
+                <span class="material-symbols-outlined text-[11px]">check</span>
+              </span>
+            </div>
+            <span class="font-label-md text-label-md text-on-surface font-bold">Glass ${currentGlasses}</span>
+            <span class="font-badge-counter text-badge-counter text-on-surface-variant mt-0.5">${timeStr}</span>
+          `;
+          setTimeout(() => {
+            targetSlot.classList.remove('animate-bounce');
+          }, 800);
+        }
+
+        // Prepend to timeline
+        const timeline = document.getElementById('timeline-list');
+        if (timeline) {
+          const now = new Date();
+          const timeStr = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+          const newRow = document.createElement('div');
+          newRow.className = "flex items-center justify-between p-space-sm rounded-xl bg-secondary-container/30 transition-colors animate-pulse";
+          newRow.innerHTML = `
+            <div class="flex items-center gap-space-sm">
+              <div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[18px]">water_drop</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-label-lg text-label-lg text-on-surface font-semibold">Glass ${currentGlasses} (${selectedVolume}ml)</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">${timeStr} • Just logged</span>
+              </div>
+            </div>
+            <span class="font-badge-counter text-badge-counter font-bold text-tertiary bg-tertiary-fixed px-space-xs py-0.5 rounded-full">+${selectedXp} XP</span>
+          `;
+          timeline.insertBefore(newRow, timeline.firstChild);
+        }
+
+        // Show toast animation
+        const toast = document.getElementById('toast-banner');
+        if (toast) {
+          toast.classList.remove('opacity-0', '-translate-y-2', 'pointer-events-none');
+        }
+      }
+    }
+  </script>
+</div></main></div>
+<script>
+function toggleNotifications(event) {
+  if(event) event.stopPropagation();
+  const dropdown = document.getElementById('notificationDropdown');
+  if (dropdown.classList.contains('hidden')) {
+    dropdown.classList.remove('hidden');
+  } else {
+    dropdown.classList.add('hidden');
+  }
+}
+
+function markAllRead() {
+  document.getElementById('notifCount').style.display = 'none';
+  const dots = document.querySelectorAll('#notificationDropdown .w-2.h-2.bg-primary');
+  dots.forEach(dot => dot.style.display = 'none');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+  const dropdown = document.getElementById('notificationDropdown');
+  const btn = document.querySelector('button[aria-label="Notifications"]');
+  if (dropdown && !dropdown.classList.contains('hidden') && !dropdown.contains(event.target) && !btn.contains(event.target)) {
+    dropdown.classList.add('hidden');
+  }
+});
+
+function toggleProfile(event) {
+  if(event) event.stopPropagation();
+  const dropdown = document.getElementById('profileDropdown');
+  if (dropdown.classList.contains('hidden')) {
+    dropdown.classList.remove('hidden');
+  } else {
+    dropdown.classList.add('hidden');
+  }
+}
+
+document.addEventListener('click', function(event) {
+  const profileDropdown = document.getElementById('profileDropdown');
+  const profileBtn = document.getElementById('profileBtn');
+  if (profileDropdown && !profileDropdown.classList.contains('hidden') && !profileDropdown.contains(event.target) && !profileBtn.contains(event.target)) {
+    profileDropdown.classList.add('hidden');
+  }
+});
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem("savedAvatar");
+    if (saved) {
+      document.querySelectorAll('img[alt="Profile"], img[alt="Profile Picture"]').forEach(img => img.src = saved);
+    }
+  });
+</script>
+</body>
+
+</html>
