@@ -1,1 +1,82 @@
-<meta http-equiv="refresh" content="0; url=dashboard.html" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>BreakBuddy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <style>
+    @layer base { html, body { margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; } }
+    ::-webkit-scrollbar { display: none; }
+    /* Prevent Caret Browsing cursor and accidental text selection to make the app feel native */
+    body { user-select: none; -webkit-user-select: none; }
+    input, textarea, [contenteditable] { user-select: text; -webkit-user-select: text; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0058be",
+            "primary-container": "#2170e4",
+            "on-primary": "#ffffff",
+            "secondary": "#006c49",
+            "secondary-container": "#6cf8bb",
+            "on-secondary-container": "#00714d",
+            "background": "#faf8ff",
+            "surface": "#faf8ff",
+            "surface-container": "#eaedff",
+            "surface-container-low": "#f2f3ff",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#131b2e",
+            "on-surface-variant": "#424754",
+            "error": "#ba1a1a",
+            "on-error": "#ffffff"
+          }
+        }
+      }
+    }
+  </script>
+  <script type="module" src="supabase-client.js"></script>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col items-center">
+  <nav class="w-full max-w-6xl px-6 py-6 flex justify-between items-center z-10">
+    <div class="flex items-center gap-3">
+      <img src="logo.svg" alt="BreakBuddy Logo" class="h-10 w-auto">
+      <span class="text-2xl font-bold text-primary tracking-tight">BreakBuddy</span>
+    </div>
+    <div class="flex gap-4">
+      <a href="login.html" class="px-6 py-2.5 rounded-full font-semibold text-primary hover:bg-surface-container transition-colors">Sign In</a>
+      <a href="login.html" class="px-6 py-2.5 rounded-full font-semibold bg-primary text-on-primary shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">Get Started</a>
+    </div>
+  </nav>
+
+  <main class="flex-1 flex flex-col items-center justify-center w-full px-6 z-10 text-center -mt-10">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold text-sm mb-8 animate-bounce">
+      <span class="material-symbols-outlined text-[18px]">local_fire_department</span>
+      Join 500+ students on their wellness journey
+    </div>
+    
+    <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight mb-6 max-w-4xl leading-tight">
+      Your Campus <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">Wellness Companion</span>
+    </h1>
+    
+    <p class="text-lg md:text-xl text-on-surface-variant mb-10 max-w-2xl leading-relaxed">
+      Stay hydrated, take meaningful breaks, and track your health progress—all while leveling up and earning achievements.
+    </p>
+    
+    <a href="login.html" class="group relative px-8 py-4 rounded-full bg-primary text-on-primary font-bold text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all overflow-hidden flex items-center gap-2">
+      <span class="relative z-10">Start Your Journey</span>
+      <span class="material-symbols-outlined relative z-10 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+      <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+    </a>
+  </main>
+
+  <!-- Decorative background elements -->
+  <div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[100px] -z-10 pointer-events-none"></div>
+  <div class="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-container/30 blur-[100px] -z-10 pointer-events-none"></div>
+</body>
+</html>
